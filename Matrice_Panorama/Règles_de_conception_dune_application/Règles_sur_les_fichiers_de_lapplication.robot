@@ -24,4 +24,5 @@ Droits sur les fichiers
     Should Contain Any    ${out}    drwxr-xr-x. * adm_ags ags    -rwxr-xr-x. 1 adm_ags ags
 
 Fichiers de log
-    ${out}=    Execute Command    more /appli/AGS_SIMU_PCS/var/log/AGS_SIMU_PCS.log
+    #${out}=    Execute Command    more /appli/AGS_SIMU_PCS/var/log/AGS_SIMU_PCS.log
+    #Should not be empty    ${out}
