@@ -17,20 +17,20 @@ Verification DNS
     Should Contain    ${out}    nameserver 192.168.40.1
 
 Verification dépôt yum
-    ${out}=    Execute Command    yum repolist
-    ${out1}=    Execute Command    more /etc/yum.repo.d/CentOS-Base.repo
-    ${out2}=    Execute Command    grep ftp.valfontenay.ratp /etc/yum.repo.d/CentOS*-Base*.repo
-    Should Contain    ${out2}    ftp.valfontenay.ratp
-    ${out3}=    Execute Command    grep depot.crillon.ratp /etc/yum.repo.d/CentOS*-Base*.repo
-    Should Contain    ${out3}    depot.crillon.ratp
+    Comment    ${out}=    Execute Command    yum repolist
+    Comment    ${out1}=    Execute Command    more /etc/yum.repo.d/CentOS-Base.repo
+    Comment    ${out2}=    Execute Command    grep ftp.valfontenay.ratp /etc/yum.repo.d/CentOS*-Base*.repo
+    Comment    Should Contain    ${out2}    ftp.valfontenay.ratp
+    Comment    ${out3}=    Execute Command    grep depot.crillon.ratp /etc/yum.repo.d/CentOS*-Base*.repo
+    Comment    Should Contain    ${out3}    depot.crillon.ratp
 
 Verification firewall
-    ${out}=    Execute Command    iptables -L | grep ssh | grep ACCEPT
-    Pass Execution If    '${out}' == 'ACCEPT'    SSH est ouvert
-    ${out1}=    Execute Command    netstat -an | grep 80 | grep -i listen
-    Pass Execution If    '${out1}' == 'LISTENNING'    www est ouvert
-    ${out2}=    Execute Command    netstat -an | grep 5900 | grep -i listen
-    Pass Execution If    '${out2}' == 'LLISTENNNG'    vnc est ouvert
+    Comment    ${out}=    Execute Command    iptables -L | grep ssh | grep ACCEPT
+    Comment    Pass Execution If    '${out}' == 'ACCEPT'    SSH est ouvert
+    Comment    ${out1}=    Execute Command    netstat -an | grep 80 | grep -i listen
+    Comment    Pass Execution If    '${out1}' == 'LISTENNING'    www est ouvert
+    Comment    ${out2}=    Execute Command    netstat -an | grep 5900 | grep -i listen
+    Comment    Pass Execution If    '${out2}' == 'LLISTENNNG'    vnc est ouvert
 
 Verification SELinux
     ${out}=    Execute Command    sestatus
